@@ -8,6 +8,17 @@ describe Node do
 			expect(Node.new("A",Node.new("B")).to_s).to eq("A, B")
 		end
 	end
+	describe "convenience factory" do
+		it "constructs a single element list" do
+			list = Node.from_string("a")
+			expect(list.to_s).to eq("a")
+		end
+		it "constructs a single element list" do
+			n = Node.from_string("a,b,c, d")
+			expect(n.to_s).to eq("a, b, c, d")
+		end
+	end
+
 	describe "deletion" do
 		context "from a three element list" do
 			let(:list){Node.new("a",Node.new("b",Node.new("c")))}

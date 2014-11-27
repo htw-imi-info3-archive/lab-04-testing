@@ -4,6 +4,11 @@ class Node
 		@data = data
 		@next_node = next_node
 	end
+
+	def self.from_string(s)
+		return Node.new(s)
+	end
+
 	def to_s
 		unless next_node
 		  data.to_s 
@@ -11,6 +16,7 @@ class Node
 		  data.to_s + ", " + next_node.to_s
 		end
     end
+
 
     def delete(data)
     	# this is a too simple implementation to satisfy the first deletion example.
