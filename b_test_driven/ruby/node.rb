@@ -6,7 +6,7 @@ class Node
 	end
 
 	def self.from_string(s)
-		return Node.new(s)
+		s.split(",").map(&:strip).reverse.inject(nil){|list, n| Node.new(n,list)}
 	end
 
 	def to_s
