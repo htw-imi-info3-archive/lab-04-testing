@@ -20,13 +20,21 @@ public class Node<E> {
 			return data.toString() + ", " + next.toString();
 	}
 
-	public  static Node<String> fromString(String string) {
+	public static Node<String> fromString(String string) {
 		String[] content = string.split(",");
 		Node<String> result = null;
-		for (int i=content.length-1;i>=0;i--){
-			result = new Node<String>(content[i].trim(),result);		
+		for (int i = content.length - 1; i >= 0; i--) {
+			result = new Node<String>(content[i].trim(), result);
 		}
 		return result;
 	}
-	
+
+	public Node<E> append(E data) {
+		Node<E> current = this;
+		while (current.next != null)
+			current = current.next;
+		current.next = new Node<E>(data);
+		return this;
+	}
+
 }
