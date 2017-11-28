@@ -9,6 +9,13 @@ class Node
     @next_node = next_node
   end
 
+  def append(data_to_append)
+    current = self
+    current = current.next_node until current.next_node.nil?
+    current.next_node = Node.new(data_to_append)
+    self
+  end
+
   def delete(data_to_be_deleted)
     # this is a too simple implementation to satisfy the first deletion example.
     next_node
