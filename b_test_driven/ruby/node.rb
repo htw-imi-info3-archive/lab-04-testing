@@ -9,6 +9,12 @@ class Node
     @next_node = next_node
   end
 
+  def last
+    current = self
+    current = current.next_node until current.next_node.nil?
+    current.data
+  end
+
   def append(data_to_append)
     current = self
     current = current.next_node until current.next_node.nil?
